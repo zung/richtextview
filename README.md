@@ -1,2 +1,2 @@
 # richtextview
-render rich text for android
+render rich text for android.
