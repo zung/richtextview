@@ -1,0 +1,3 @@
+include ':richtextview'
+include ':app'
+rootProject.name = "RichTextView"

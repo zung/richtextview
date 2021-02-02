@@ -1,0 +1,16 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+
+    def groupProjectID = 'com.czg.richtextview'
+    def artifactProjectID = 'richtextview'
+    def publishVersionID = '1.1'
+
+    userOrg = 'zung435'
+    repoName = 'richtextview'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Android library for renderer richtext.'
+    website = 'https://github.com/zung/richtextview'
+}
