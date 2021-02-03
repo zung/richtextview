@@ -38,7 +38,7 @@ String src = "<div id=\"se-knowledge\"><p><big>H</big>ello <i>world!</i></p>"
 	"</ul>"
 	+ "successful!"
 	+ "</div>";
-MyHtml.init(textView);
+MyHtml.init(this);
 Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml.ImageGetter() {
     @Override
     public Drawable getDrawable(String source, int start) {
@@ -48,6 +48,14 @@ Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml
 }, null);
 textView.setText(spanned);
 ```
-Last, you need to call the method MyHtml.onImageReady(bitmap, start) to show the bitmap obtained by any method.
+Last, use the following code to display the picture obtained by any method uses the code below:
+```
+SpannableString spannableString = (SpannableString) mTextView.getText();
+if (spannableString.length() > start) {
+    spannableString.setSpan(new ImageSpan(MainActivity.this, bitmap), start, start + 1,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+}
+```
+Good Luck!
 # Screen shoot
 ![blockchain](https://github.com/zung/richtextview/blob/main/app/result.png?raw=true "Screen shoot")
