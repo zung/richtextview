@@ -14,6 +14,8 @@ import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 "</ul>"
                 + "successful!"
                 + "</div>";
-        MyHtml.init(mTextView);
+        MyHtml.init(this);
         Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml.ImageGetter() {
             @Override
             public Drawable getDrawable(String source, int start) {
@@ -152,7 +154,11 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        MyHtml.onImageReady(bitmap, start);
+                        SpannableString spannableString = (SpannableString) mTextView.getText();
+                        if (spannableString.length() > start) {
+                            spannableString.setSpan(new ImageSpan(MainActivity.this, bitmap), start, start + 1,
+                                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        }
                         urlConnection.disconnect();
                     }
                 });
