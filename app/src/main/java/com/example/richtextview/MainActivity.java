@@ -6,9 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -23,12 +26,14 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
 
+    private TextView mTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView  textView = findViewById(R.id.text);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        mTextView = findViewById(R.id.text);
+        mTextView.setMovementMethod(LinkMovementMethod.getInstance());
         String src = "<div id=\"se-knowledge\"><p><big>H</big>ello <i>world!</i></p>"
                 + "<img src=\"https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF\"/>"
                 + "<ul>" +
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 "</ul>"
                 + "successful!"
                 + "</div>";
-        MyHtml.init(textView);
+        MyHtml.init(this);
         Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml.ImageGetter() {
             @Override
             public Drawable getDrawable(String source, int start) {
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
         }, null);
-        textView.setText(spanned);
+        mTextView.setText(spanned);
     }
 
     public void getImage(String source, int start) {
@@ -85,7 +90,11 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        MyHtml.onImageReady(bitmap, start);
+                        SpannableString spannableString = (SpannableString) mTextView.getText();
+                        if (spannableString.length() > start) {
+                            spannableString.setSpan(new ImageSpan(MainActivity.this, bitmap), start, start + 1,
+                                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        }
                         urlConnection.disconnect();
                     }
                 });

@@ -1,6 +1,5 @@
 package com.czg.richtextview;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -634,24 +633,6 @@ public class HtmlToSpannedConverter implements ContentHandler {
     }
 
     public void skippedEntity(String name) throws SAXException {
-    }
-
-    public void onImageReady(Drawable drawable, String source, int start) {
-        mSpannableStringBuilder.setSpan(new ImageSpan(drawable, source), start, start + 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        rendererImage();
-    }
-
-    public void onImageReady(Bitmap bitmap, int start) {
-        mSpannableStringBuilder.setSpan(new ImageSpan(MyHtml.sContext, bitmap), start, start + 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        rendererImage();
-    }
-
-    private void rendererImage() {
-        if (MyHtml.sTextView != null) {
-            MyHtml.sTextView.setText(mSpannableStringBuilder);
-        }
     }
 
     private static class Bold { }

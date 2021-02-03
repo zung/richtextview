@@ -40,8 +40,6 @@ import org.xml.sax.XMLReader;
  */
 public class MyHtml {
 
-    private static HtmlToSpannedConverter sConverter;
-
     /**
      * Retrieves images for HTML &lt;img&gt; tags.
      */
@@ -71,9 +69,6 @@ public class MyHtml {
                               Editable output, XMLReader xmlReader);
     }
 
-    public static interface OnTagCompletedListener {
-        public void onTagCompleted(Spanned spanned);
-    }
     /**
      * Option for {@link #toHtml(Spanned, int)}: Wrap consecutive lines of text delimited by '\n'
      * inside &lt;p&gt; elements. {@link BulletSpan}s are ignored.
@@ -151,7 +146,6 @@ public class MyHtml {
     | FROM_HTML_SEPARATOR_LINE_BREAK_BLOCKQUOTE;
 
     public static Context sContext;
-    public static TextView sTextView;
 
     /**
      * The bit which indicates if lines delimited by '\n' will be grouped into &lt;p&gt; elements.
@@ -160,9 +154,8 @@ public class MyHtml {
 
     private MyHtml() { }
 
-    public static void init(TextView textView) {
-        sContext = textView.getContext();
-        sTextView = textView;
+    public static void init(Context context) {
+        sContext = context;
     }
 
     /**
@@ -207,22 +200,8 @@ public class MyHtml {
             throw new RuntimeException(e);
         }
 
-        sConverter = new HtmlToSpannedConverter(source, imageGetter, tagHandler, parser, flags);
-        return sConverter.convert();
-    }
-
-    /**
-     * When the picture is ready, call this method to display the picture
-     * @param drawable pictures to show
-     * @param resource The address of the picture
-     * @param start The position in the text where the picture begins to appear
-     */
-    public static void onImageReady(Drawable drawable, String resource, int start) {
-        sConverter.onImageReady(drawable, resource, start);
-    }
-
-    public static void onImageReady(Bitmap bitmap, int start) {
-        sConverter.onImageReady(bitmap, start);
+        HtmlToSpannedConverter converter = new HtmlToSpannedConverter(source, imageGetter, tagHandler, parser, flags);
+        return converter.convert();
     }
 
     /**
