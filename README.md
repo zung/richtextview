@@ -1,2 +1,3 @@
 # richtextview [ ![Download](https://api.bintray.com/packages/zung435/richtextview/richtextview/images/download.svg?version=1.1) ](https://bintray.com/zung435/richtextview/richtextview/1.1/link)
-render rich text for android.
+Render rich text for android.
+The supported HTML tags are div p br span a i u big img...
