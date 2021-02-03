@@ -24,4 +24,4 @@ implementation 'com.czg.richtextview:richtextview:1.1'
 </dependency>
 ```
 # Screen shoot
-![blockchain]("https://github.com/zung/richtextview/blob/main/app/result.png?raw=true" "Screen shoot")
+![blockchain](https://github.com/zung/richtextview/blob/main/app/result.png?raw=true "Screen shoot")
