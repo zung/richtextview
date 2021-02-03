@@ -3,17 +3,21 @@ Render rich text for android.
 The supported HTML tags are div p br span a i u big img...
 # Getting Started
 - maven
+```
 <dependency>
 	<groupId>com.czg.richtextview</groupId>
 	<artifactId>richtextview</artifactId>
 	<version>1.1</version>
 	<type>pom</type>
 </dependency>
+```
 
 - gradle
-implementation 'com.czg.richtextview:richtextview:1.1'
+`implementation 'com.czg.richtextview:richtextview:1.1'`
 
 - ivy
+```
 <dependency org="com.czg.richtextview" name="richtextview" rev="1.1">
 	<artifact name="richtextview" ext="pom"></artifact>
 </dependency>
+```
