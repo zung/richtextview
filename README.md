@@ -13,7 +13,9 @@ The supported HTML tags are div p br span a i u big img...
 ```
 
 - gradle
-`implementation 'com.czg.richtextview:richtextview:1.1'`
+```
+implementation 'com.czg.richtextview:richtextview:1.1'
+```
 
 - ivy
 ```
