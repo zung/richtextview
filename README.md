@@ -1,8 +1,8 @@
 # richtextview [ ![Download](https://api.bintray.com/packages/zung435/richtextview/richtextview/images/download.svg?version=1.1) ](https://bintray.com/zung435/richtextview/richtextview/1.1/link)
 Render rich text for android.
 The supported HTML tags are div p br span a i u big img...
-# Get Started
-### maven
+# Getting Started
+- maven
 <dependency>
 	<groupId>com.czg.richtextview</groupId>
 	<artifactId>richtextview</artifactId>
@@ -10,10 +10,10 @@ The supported HTML tags are div p br span a i u big img...
 	<type>pom</type>
 </dependency>
 
-### gradle
+- gradle
 implementation 'com.czg.richtextview:richtextview:1.1'
 
-### ivy
+- ivy
 <dependency org="com.czg.richtextview" name="richtextview" rev="1.1">
 	<artifact name="richtextview" ext="pom"></artifact>
 </dependency>
