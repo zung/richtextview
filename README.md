@@ -47,5 +47,6 @@ Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml
 }, null);
 textView.setText(spanned);
 ```
+Last, you need to call the method MyHtml.onImageReady(bitmap, start) to show the bitmap obtained by any method.
 # Screen shoot
 ![blockchain](https://github.com/zung/richtextview/blob/main/app/result.png?raw=true "Screen shoot")
