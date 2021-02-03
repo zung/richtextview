@@ -1,5 +1,6 @@
-# richtextview [ ![Download](https://api.bintray.com/packages/zung435/richtextview/richtextview/images/download.svg?version=1.1) ](https://bintray.com/zung435/richtextview/richtextview/1.1/link)
-Render rich text for android.
+# richtextview [ ![Download](https://api.bintray.com/packages/zung435/richtextview/richtextview/images/download.svg?version=1.1) ](https://bintray.com/zung435/richtextview/richtextview/1.1/link) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/zung/richtextview)
+Render rich text for android. 
+Android Api level 18+
 The supported HTML tags are div p br span a i u big img...
 # Getting Started
 - maven
