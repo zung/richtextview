@@ -23,5 +23,5 @@ implementation 'com.czg.richtextview:richtextview:1.1'
 	<artifact name="richtextview" ext="pom"></artifact>
 </dependency>
 ```
-# Screen capture
+# Screen shoot
 ![blockchain]("https://github.com/zung/richtextview/blob/main/app/result.png?raw=true" "Screen shoot")
