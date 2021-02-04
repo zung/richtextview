@@ -83,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
                 + "<br/>successful!"
                 + "</div>";
         MyHtml.init(this);
-//        Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml.ImageGetter() {
-//            @Override
-//            public Drawable getDrawable(String source, int start) {
-//                getImage(source, start);
-//                return null;
-//            }
-//        }, null);
-        mTextView.setText(src);
+        Spanned spanned = MyHtml.fromHtml(src, MyHtml.FROM_HTML_MODE_COMPACT, new MyHtml.ImageGetter() {
+            @Override
+            public Drawable getDrawable(String source, int start) {
+                getImage(source, start);
+                return null;
+            }
+        }, null);
+        mTextView.setText(spanned);
     }
 
     public void getImage(String source, int start) {
